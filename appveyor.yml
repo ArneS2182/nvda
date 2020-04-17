@@ -165,7 +165,7 @@ test_script:
 
 # Flake8 Linting
  - ps: |
-    if($env:APPVEYOR_PULL_REQUEST_NUMBER) {
+    if($env:APPVEYOR_REPO_BRANCH.StartsWith("try-")) {
       $lintOutput = (Resolve-Path .\testOutput\lint\)
       $lintSource = (Resolve-Path .\tests\lint\)
       git fetch -q origin $env:APPVEYOR_REPO_BRANCH
